@@ -9,3 +9,28 @@ The CPO can dynamically decide from which DSO to acquire energy based on price a
 Some charging stations can have batteries available to store energy acquired from DSOs and the CPOs of those stations can decide whether to use or not them.
 
 All these decisions can be handled both by humans and by the CPMSs.
+
+### 1.1.1 Goals 
+| **Goal** | **Description** |
+| :---:   | :---: | 
+|G1| Allow users to know about the charging stations nearby, their cost, any special offer they have|
+|G2| Allow users to book a charge in a specific charging station for a certain timeframe |
+|G3| Allow users to start the charging process at a certain station |
+|G4| Allow users to pay the service|
+
+
+## 1.2 Scope 
+While there are several actiors to considerm we will focus on eMSP(e-Mobility Service Providers) and CPMS(Charge Point Management System). Any eMSP can interact with multiple CPMSs, each one owned by different CPO (Charging Point Operators).
+
+### 1.2.1 World Phenomena 
+| Identifier | Description |
+| :---:   | :---: | 
+| WP1 | The user need to charge the electric vehicle |
+| WP2 | CPOs want to sell energy |
+| WP3 | ... |
+
+### 1.2.2 Shered Phenomena 
+| Identifier | Description |
+| :---:   | :---: | 
+
+
