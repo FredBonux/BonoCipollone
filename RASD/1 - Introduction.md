@@ -38,7 +38,13 @@ SP2 - User verifies the email for his account
 SP3 - User add payments information for his account
 SP4 - System shows the nearby available stations to the user
 SP5 - User books a charging session through the system
+SP6 - System send information about a charging session to the User
 
 CPMS side shared phenomena
-SP6 - System books the charging session from the CPMS
-SP7 - CPMS 
+SP7 - System books the charging session from the CPMS
+SP8 - CPMS send to the System the charging session details
+SP9 - System authenticate the charging session for the CPMS
+
+Payment Provider side shared phenomena
+SP10 - System send cost information to the Payment Provider to charge the User
+SP11 - Payment Provider send to the system the payment process details (eg. status)
