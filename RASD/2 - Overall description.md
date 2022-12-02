@@ -10,7 +10,7 @@ and, after submitting the form, he's granted access to the system.
 
 ### 2. User wants to check for charging station availabilities
 Bob wants to charge his car, he opens the eMall app and, using the integrated map view
-starts looking for a nearby charging station. After tapping on one of the available stations,
+starts looking for a nearby charging station. After tapping on one of the available Charging Points,
 the application displays the status of the station, the available charging docks and their connectors
 as well as the price rates applied.
 
@@ -38,21 +38,24 @@ TODO: insert diagram
 
 ## 2.2 - Product functions
 
-### 2.2.1 Nearby charging stations overview
-The users want to quickly find nearby stations and see the status, the available slots, their connectors and the charging rates, this will allow them to decide where to charge their vehicles.
+Basic requirement: as the system acts as a middleware between the user and the Charging Point, a structured communication protocol is needed. This system will be design to communicate using the Open Charge Point Interface (OCPI) standard. 
+
+Pricing requirement: as OCPI enables a very complex pricing system, to keep the scope of the project simple, the system will set a per-KW price based on the pricing of the various charing point. The prices are automatially synced with the prices of the CP
+
+### 2.2.1 Nearby charging points overview
+The users want to quickly find nearby charging points and see their status, the available slots, their connectors and the tariffs, this will allow them to decide where to charge their vehicles.
 To achieve this, the system should act as an aggregator for multiple CPMS, collect the data in real-time and display all the information on a map.
 
 ### 2.2.2 Booking a charging slot
-When a user has decided where to charge his vehicle, he can use the same system to book the slot for a specific time frame. As a CPMS interacts with multiple eMSPs, the booking business logic must be completely handled by the CPMS itself. 
+When a user has decided where to charge his vehicle, he can use the same system to book the slot for a specific time frame.
+As for the OCPI standard booking is managed by the CPMS, the system will need to require booking confirmation from the CPMS.
 
 ### 2.2.3 Unlocking a charging slot and starting a charge session
-When a user arrives at the charging station he can use the app to review the booking details and check to which slot to connect the vehicle. He connects the car via the correct
-plug provided by the charging station and, afterward, he uses the app to authenticate into the system and start charging. Now, the CP system allows also to follow a different path: authenticate and start the charge from the app, and then, connect the vehicle. In this case, the charging starts automatically after the plug is connected to the vehicle.
+When a user arrives at the charging station he can use the app to review the booking details and check to which slot to connect the vehicle. He connects the car via the correct plug provided by the charging station and, afterward, he uses the app to authenticate into the system and start charging. Even if OCPI standard allows for other types of session initialization, our system will not deal with them.
 
 ### 2.2.4 Checking the status of the charge session
 After initiating the charge the user will be able to view the status of the session (charge level and estimated time remaining) from the app.
-The system automatically retrieves the needed information from the CPMS and eventually notifies the user about any problem that can occur.
-
+The system automatically retrieves the needed information from the CPMS and eventually notifies the user about any problem that can occur (e.g. charge session is interupted by the Charge Point)
 
 ### 2.2.5 Completing the charge session and paying for the service
 A user can complete the charge session when the booked time frame is passed or even before the end of the charge. 
@@ -61,7 +64,6 @@ As stated above, the payment request is automatically triggered and the payment 
 
 
 ## 2.3 User characteristics
-
 For the scope of the document, we can identify a single actor / user type for the eMall system, but to allow us to better define some details later on, we've split the user
 based on his possible states
 
@@ -79,3 +81,11 @@ A person who is registered to the system, has a verified email address and an ac
 
 ### 5. eMall disabled user
 An active user that has been flagged for deactivation by the system admin. Could be for security reasons, for direct request from the customer or for terms of service violation.
+
+
+## 2.4 Assumptions, dependencies and constraints
+
+### 2.4.1 Assumptions
+D1 - There is a system admin that does the initial setup of the system and manages it
+D2 - The system admin adds the necessary information about charging point, slots and CPMS to the database
+D3 - Users accept the contract and terms of service when signing up into the system
