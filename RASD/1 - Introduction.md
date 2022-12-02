@@ -1,5 +1,5 @@
 # Introduction
-### Effort: 1h + 1h
+### Effort: 1h + 1.5h
 
 ## 1.1 Purpose
 The purpose of this document is to analyze and define the goals and requirements to later design, on behalf of the e-Mobility Service Providers (eMSPs), the infrastructure for the eMall App.

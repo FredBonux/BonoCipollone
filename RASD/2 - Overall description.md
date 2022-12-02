@@ -1,5 +1,5 @@
 # 2.1 - Product perspective
-Effort: 1h + 1h per class_diagram on lucid chart + 1h
+Effort: 1h + 1h per class_diagram on lucid chart + 1h + 2h
 
 ## 2.1.1 - Scenarios
 
