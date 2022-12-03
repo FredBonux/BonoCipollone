@@ -77,12 +77,12 @@ Pending User - Registered user with confirmed email but no payment method set up
 Payment Service Provider - External service that provides API to process payments
 
 ### 1.3.2 Acronyms
-eMSP - e Mobility Service Provider
-CP - Charge Point / Charging Point
-CPO - Charging Point Operator
-CPMS - Charging Point Management System
-OCPI - Open Charge Point Interface
-EV - Electric Vehicle
+eMSP & e Mobility Service Provider\\
+CP & Charge Point / Charging Point\\
+CPO & Charging Point Operator\\
+CPMS & Charging Point Management System\\
+OCPI & Open Charge Point Interface\\
+EV & Electric Vehicle\\
 
 ## 1.4 Revision history
 ## 1.5 Related documents
