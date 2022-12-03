@@ -69,6 +69,12 @@ Maintenence of a charging slot - Activity/activities that results in a momentary
 Payment information - information required by the payment provider to be able to charge the user for the service (e.g. credit card number)
 Charging session - period of time when the vehicle is connected to a charging plug for charging
 Booking period - period of time between the booking of a charging session and the beginning of the charging session
+Guest / Guest User - Unregistered user
+User / Enabled User / Active User - Registered user with confirmed email and payment method
+Unconfirmed User - Registered user without confirmed email
+Pending User - Registered user with confirmed email but no payment method set up
+
+Payment Service Provider - External service that provides API to process payments
 
 ### 1.3.2 Acronyms
 eMSP - e Mobility Service Provider
