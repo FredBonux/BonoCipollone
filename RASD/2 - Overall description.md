@@ -15,8 +15,7 @@ the application displays the status of the station, the available charging docks
 as well as the price rates applied.
 
 ### 3. User wants to book a charge for a certain time frame 
-Bob opens the app, searches for an available station and, after opening the station details, he taps on the "book" button to start the booking process.
-The application asks for a time frame and a connector type, and after checking for availability, it books the connector and returns the booking reference to Bob.
+Bob opens the app, searches for an available station and, after opening the station details, he taps on the "book" button to start the booking process. The application asks for a time frame and a connector type, and after checking for availability, it books the connector and returns the booking reference to Bob.
 
 ### 4. User wants to start a charge at the station
 Bob goes to a station and wants to start charging his vehicle, with a booking for that time frame, 

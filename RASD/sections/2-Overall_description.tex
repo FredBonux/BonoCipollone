@@ -1,0 +1,126 @@
+\newcommand\descitem[1]{\item{\bfseries #1}\\}
+
+\chapter{Overall description}
+\section{Product perspective}
+\subsection{Scenarios}
+
+\begin{enumerate}
+	\descitem{User wants to start using the platform}
+	Bob has bought a new electric car and wants to start using the eMall network to charge it.\\ Bob goes to the app store to download the official application, opens it and taps on the "Signup" button to initiate the user registration flow. He inserts all the necessary information and, after submitting the form, he's granted access to the system. 
+	
+	\descitem{User wants to check for charging station availabilities}
+	Bob wants to charge his car, he opens the eMall app and, using the integrated map view starts looking for a nearby charging station. After tapping on one of the available Charging Points, the application displays the status of the station, the available charging docks and their connectors as well as the price rates applied.
+	
+	\descitem{User wants to book a charge for a certain time frame}
+	Bob opens the app, searches for an available station and, after opening the station details, he taps on the "book" button to start the booking process. The application asks for a time frame and a connector type, and after checking for availability, it books the connector and returns the booking reference to Bob.
+	
+	\descitem{User wants to start a charge at the station}
+	Bob goes to a station and wants to start charging his vehicle, with a booking for that time frame, he simply needs to park the car in the correct spot, connect it with the correct plug and enable the charge flow via the app. Without a booking, he needs to look for an available spot via the app and start a booking process for it.
+	
+	\descitem{User wants to be notified at the end of the charge}
+	Bob started the charging process a couple of hours ago for a 2 hours time frame. The system checks the booking time-frame and sends a notification to Bob's smartphone with the details of the charging process (e.g. cost and battery status)
+	
+	\descitem{User wants to pay for the service}
+	Bob goes to retrieve his car from the station, he uses the app to complete the charging process and the system automatically bills his credit card / Paypal account with the required amount.
+\end{enumerate}
+
+\newpage
+
+\subsection{Class Diagram}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{class_diagram}
+\caption{Class diagram of the eMSP system for eMall}
+\end{figure}
+
+\clearpage
+\newpage
+
+
+\section{Product functions}
+Before going deeply into details about the product functions that needs to be developed and the related requirements, we first need to quickly introduce two base requirements needed to contain the scope of this project:\\
+
+\begin{itemize}
+	\item As the system acts as a middleware between the User and the Charging Points, a structured communication protocol is needed. This system will be design to communicate using the Open Charge Point Interface (OCPI) standard.
+	\item As OCPI enables a very complex pricing system, to keep the scope of the project simple, the system will set a per-KW price based on the pricing of the various Charging Point. The prices are automatically synced with the prices of the CP.
+\end{itemize}
+
+\subsection{Nearby charging points overview}
+The users want to quickly find nearby charging points and see their status, the available slots, their connectors and the tariffs, this will allow them to decide where to charge their vehicles.\\
+To achieve this, the system should act as an aggregator for multiple CPMS, collect the data in real-time and display all the information on a map.
+
+\subsection{Booking a charging slot}
+When a user has decided where to charge his vehicle, he can use the same system to book the slot for a specific time frame.\\
+As for the OCPI standard booking is managed by the CPMS, the system will need to require booking confirmation from the CPMS.
+
+\subsection{Unlocking a charging slot and starting a charge session}
+When a user arrives at the charging station he can use the app to review the booking details and check to which slot to connect the vehicle. He connects the car via the correct plug provided by the charging station and, afterward, he uses the app to authenticate into the system and start charging. Even if OCPI standard allows for other types of session initialisation, our system will not deal with them.
+
+\subsection{Checking the status of the charge session}
+After initiating the charge the user will be able to view the status of the session (charge level and estimated time remaining) from the app.\\
+The system automatically retrieves the needed information from the CPMS and eventually notifies the user about any problem that can occur (e.g. charge session is interrupted by the Charge Point)
+
+\newpage
+
+\subsection{Completing the charge session and paying for the service}
+A user can complete the charge session when the booked time frame is passed or even before the end of the charge.\\
+To complete a charge session the user can use the app to stop the charging process and detach the plug from the vehicle.\\
+As stated above, the payment request is automatically triggered and the payment service provider will charge the user the right amount and send the invoice via email.
+
+\section{User characteristics}
+For the scope of the document, we can identify a single user type for the eMall system, but to allow us to better define some details later on, we've split the user based on his possible states
+
+\begin{enumerate}
+	\descitem{Unregistered user / guest}
+	A person who is not already registered to the system
+	
+	\descitem{Registered user waiting for email verification}
+	A person who is registered to the system but has yet to confirm the email address used in the signup form.
+	
+	\descitem{Registered user waiting for payment method registration}
+	A person who is registered to the system, has his email verified but needs to add a payment method to start using the app.
+
+	\descitem{eMall active user}
+	A person who is registered to the system, has a verified email address and an active and valid payment method. Payment method verification is handled by the Payment Service Provider.
+	
+	\descitem{eMall disabled user}
+	An active user that has been flagged for deactivation by the system admin. Could be for security reasons, for direct request from the customer or for terms of service violation.
+
+\end{enumerate}
+
+\section{Assumptions, dependencies and constraints}
+
+\subsection{Assumptions}
+\begin{tabular}{|l|l|}
+	\hline
+	D1 & There is a system admin that does the initial setup of the system and manages it\\
+	\hline
+	D2 & System admin adds information about charging point, slots and CPMS to the database\\
+	\hline
+	D3 & Users accept the contract and terms of service when signing up into the system\\
+	\hline
+	D4 & Users always complete their booked charging sessions\\
+	\hline
+\end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
