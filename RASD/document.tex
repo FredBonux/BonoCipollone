@@ -18,6 +18,7 @@
 \usepackage{caption}
 \usepackage{soul}
 \usepackage{blindtext}
+\usepackage{array}
 \graphicspath{{./images/}}
 \begin{document}
 
@@ -31,8 +32,11 @@
 \author{Federico Bono, Daniele Cipollone}
 \date{\today}
 
+\newcommand\descitem[1]{\item{\bfseries #1}\\}
+
 \input{sections/0-Title_page.tex}
 \input{sections/1-Introduction.tex}
 \input{sections/2-Overall_description.tex}
+\input{sections/3-Specific_requirements.tex}
 
 \end{document}
