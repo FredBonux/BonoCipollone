@@ -205,6 +205,39 @@ Here are displayed the most important use case diagrams for the various actors.
 \clearpage
 \newpage
 
+\section{Sequence Diagrams}
+Here are presented the sequence diagrams for the most important use cases. Only the "success" flow is displayed, every exception in the communication flow results in an error message displayed to the user and a request retry between the eMSP and both a CPMS or a PSP with random time with a maximum number of retries based on the request type.\\
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm\textwidth]{sequence_diagrams/book_session}
+\caption{Sequence diagram for the booking process of a new charging session}
+\end{figure}
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm\textwidth]{sequence_diagrams/start_session}
+\caption{Sequence diagram for the starting of a charging session}
+\end{figure}
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm\textwidth]{sequence_diagrams/session_notification}
+\caption{Sequence diagram for the notification of a relevant update in a charging session}
+\end{figure}
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm\textwidth]{sequence_diagrams/complete_session}
+\caption{Sequence diagram for the completion of a charging session and the related payment}
+\end{figure}
+
+\clearpage
+\newpage
+
 
 \section{Functional Requirements}
 
@@ -226,7 +259,7 @@ As the system needs to communicate with multiple actors, the following communica
    Is important to remember that to follow the OCPI protocol, our system is required to expose a "PUSH interface" (e.g. an API endpoint that follows the protocol structure) that enables the CPMS to send newer data in real-time.
    
    \descitem{Payment Service Providers:}
-    To process payments a connection with a Payment Service Provider is needed. This connection happens via proprertary API, so custom components are required to connect different providers.
+    To process payments a connection with a Payment Service Provider is needed. This connection happens via propertary API, so custom components are required to connect different providers.
 \end{enumerate}
 
 
