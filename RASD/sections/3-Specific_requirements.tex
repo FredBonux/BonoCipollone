@@ -15,7 +15,6 @@
 	\end{tabular}
 }}
 
-
 \chapter{Specific Requirements}
 
 \section{Use Case Diagrams}
@@ -241,6 +240,94 @@ Here are presented the sequence diagrams for the most important use cases. Only 
 
 \section{Functional Requirements}
 
+The system should:\\
+
+\begin{tabular}{|c|l|}
+	\hline
+	\bf{Requirement} & \bf{Description} \\
+	\hline
+	R1 & Allow Guest User sign-up\\
+	\hline
+	R2 & Allow Login for Active User\\
+	\hline
+	R3 & Require verification for email\\
+	\hline
+	R4 & Require verification for payment method\\
+	\hline
+	R5 & Allow to get a list of Charge Point\\
+	\hline
+	R6 & Allow to book a charging session on a specific Charge Point\\
+	\hline
+	R7 & Allow to start a charging session for a specific booking\\
+	\hline
+	R8 & Allow to view the list of bookings\\
+	\hline
+	R9 & Allow to complete a charging session\\
+	\hline
+	R10 & Forward the payment request to the PSP\\
+	\hline
+	R11 & Allow to get a list of Charge Point based on the location\\
+	\hline
+	R12 & Allow to filter the list of Charge Point based on the location\\
+	\hline
+	R13 & Be able to send push notifications to the user device\\
+	\hline
+	R14 & Periodically poll the various CPMS to cache the data\\
+	
+	\hline
+\end{tabular}
+
+\subsection{Requirements mapping on Goals}
+\begin{tabular}{|c|l|}
+	\hline
+	\bf{Goal} & \bf{Requirements}\\
+	\hline
+	G1 & R1, R2, R3, R4, R5, R11, R12, R14 \\
+	G2 & R1, R2, R3, R4, R5, R6, R8, R11, R12, R14 \\
+	G3 & R1, R2, R5, R7, R7, R8, R11, R12, R14 \\
+	G4 & R1, R2, R5, R6, R7, R8, R11, R12, R14 \\
+	G5 & R1, R2, R5, R6, R7, R8, R11, R12, R13, R14 \\
+	G6 & R1, R2, R4, R9, R10, R14 \\
+	\hline
+\end{tabular}
+
+\clearpage
+\newpage
+
+\section{Performance Requirements}
+As most of the Charge Points are located in the city centre, where internet connectivity is usually optimal and at high speed, the system does not have special requirements for performances related to bandwidth usage. 
+Also, no particular usage spikes are expected at any moment, so server load should be directly connected to the number of users and Charge Points covered by the system.
+
+\section{Design Constraints}
+\subsection{Standards compliance}
+There are two legal requirements to follow:
+GDPR for sensible user data and PS2 / KnowYourCustomer for the payment processing. The second requirement can be fulfilled by selecting a compliant PSP.
+Finally, to enable the interconnection with the different CPMS, the OCPI standard shall be followed when implementing the communication protocol and the data structures.
+
+\subsection{Hardware limitations}
+No particular hardware are required to use the System, other than an internet-capable smartphone.
+
+\section{Non-functional Requirements}
+
+{
+\setlength\extrarowheight{5pt}
+\begin{tabular}{|p{3cm}|p{10cm}|}
+	\hline
+	NFR1 & Reliability impacts the system usage and the related business,
+		to keep it as high as possible, fall back servers shall be considered while designing the infrastructure.	\\
+	\hline
+	NFR2 & Availability also has a huge impact but as this is not a sensible service that needs to be up and running at all time, a good compromise with cost effectiveness can be considered. \\
+	\hline
+	NFR3 & The basic security standard "de-facto" measurements should be followed, SSL and HTTPS should be enough to offer both security and ease to use.\\
+	\hline
+\end{tabular}
+}
+
+\clearpage
+\newpage
+
+
+
 \section{External Interface Requirements}
 \subsection{User Interfaces}
 The user interface for the eMSP system is a mobile application available for both iOS and Android devices.\\
@@ -258,8 +345,8 @@ As the system needs to communicate with multiple actors, the following communica
    Also is required that the CPMS follows the OCPI protocol.\\
    Is important to remember that to follow the OCPI protocol, our system is required to expose a "PUSH interface" (e.g. an API endpoint that follows the protocol structure) that enables the CPMS to send newer data in real-time.
    
-   \descitem{Payment Service Providers:}
-    To process payments a connection with a Payment Service Provider is needed. This connection happens via propertary API, so custom components are required to connect different providers.
+   \descitem{Payment Service Providers:} 
+    To process payments a connection with a Payment Service Provider is needed. This connection happens via proprietary API, so custom components are required to connect different providers.
 \end{enumerate}
 
 
