@@ -60,7 +60,7 @@
 
 
 \section{Product functions}
-Before going deeply into details about the product functions that needs to be developed and the related requirements, we first need to quickly introduce two base requirements needed to contain the scope of this project:\\
+Before going deeply into details about the product functions that needs to be developed and the related requirements, we first need to quickly introduce three base requirements needed to contain the scope of this project:\\
 
 \begin{itemize}
 	\item As the system acts as a middleware between the User and the Charging Points, a structured communication protocol is needed. This system will be design to communicate using the Open Charge Point Interface (OCPI) standard.
@@ -74,7 +74,7 @@ To achieve this, the system should act as an aggregator for multiple CPMS, colle
 
 \subsection{Booking a charging slot}
 When a user has decided where to charge his vehicle, he can use the same system to book the slot for a specific time frame.\\
-As for the OCPI standard booking is managed by the CPMS, the system will need to require booking confirmation from the CPMS.\\
+As for the OCPI standard booking is managed by the CPMS, the system will need to request booking confirmation from the CPMS.\\
 Also OCPI standard allows only reservations that starts at the time of the request so only those type of booking will be considered in the project.
 
 \subsection{Unlocking a charging slot and starting a charge session}
@@ -82,12 +82,12 @@ When a user arrives at the charging point he can use the app to review the booki
 
 \subsection{Checking the status of the charge session}
 After initiating the charge the user will be able to view the status of the session (charge level and estimated time remaining) from the app.\\
-The system automatically retrieves the needed information from the CPMS and eventually notifies the user about any problem that can occur (e.g. charge session is interrupted by the Charge Point)
+The system automatically retrieves (and receives via PUSH) the needed information from the CPMS and eventually notifies the user about any problem that can occur (e.g. charge session is interrupted by the Charge Point Operator)
 
 \subsection{Completing the charge session and paying for the service}
-A user can complete the charge session when the booked time frame is passed or even before the end of the charge.\\
+A user can complete the charge session when the charge is completed or even before.\\
 To complete a charge session the user can use the app to stop the charging process and detach the plug from the vehicle.\\
-As stated above, the payment request is automatically triggered and the payment service provider will charge the user the right amount and send the invoice via email.
+As stated above, the payment request is automatically triggered and the payment service provider will charge the user the right amount and send the invoice via email. The complete cost of the service is received with the final status update for the charging session from the CPMS.
 
 \section{User characteristics}
 For the scope of the document, we can identify a single user type for the eMall system, but to allow us to better define some details later on, we've split the user based on his possible states
@@ -122,8 +122,6 @@ For the scope of the document, we can identify a single user type for the eMall 
 	D3 & Users accept the contract and terms of service when signing up into the system\\
 	\hline
 	D4 & Users always complete their booked charging sessions\\
-	\hline
-	D5 & PSPs always process successfully the payments\\
 	\hline
 \end{tabular}
 
