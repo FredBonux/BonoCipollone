@@ -6,20 +6,20 @@
 	\descitem{User wants to start using the platform}
 	Bob has bought a new electric car and wants to start using the eMall network to charge it.\\ Bob goes to the app store to download the official application, opens it and taps on the "Signup" button to initiate the user registration flow. He inserts all the necessary information and, after submitting the form, he's granted access to the system. 
 	
-	\descitem{User wants to check for charging station availabilities}
-	Bob wants to charge his car, he opens the eMall app and, using the integrated map view starts looking for a nearby charging station. After tapping on one of the available Charging Points, the application displays the status of the station, the available charging docks and their connectors as well as the price rates applied.
+	\descitem{User wants to check for charging points availabilities}
+	Bob wants to charge his car, he opens the eMall app and, using the integrated map view starts looking for a nearby CPs. After tapping on one of the available Charging Points, the application displays the status of the point, the available charging slots and their connectors as well as the price rates applied.
 	
 	\descitem{User wants to book a charge for a certain time frame}
-	Bob opens the app, searches for an available station and, after opening the station details, he taps on the "book" button to start the booking process. The application asks for a time frame and a connector type, and after checking for availability, it books the connector and returns the booking reference to Bob.
+	Bob opens the app, searches for an available CP and, after opening the details page, he taps on the "book" button to start the booking process. The application asks for a time frame and a connector type, and after checking for availability, it books the charging slot and returns the booking reference to Bob.
 	
-	\descitem{User wants to start a charge at the station}
-	Bob goes to a station and wants to start charging his vehicle, with a booking for that time frame, he simply needs to park the car in the correct spot, connect it with the correct plug and enable the charge flow via the app. Without a booking, he needs to look for an available spot via the app and start a booking process for it.
+	\descitem{User wants to start a charge at the CP}
+	Bob goes to a charging point and wants to start charging his vehicle, with a booking for that time frame, he simply needs to park the car in the correct spot, connect it with the correct plug and enable the charge flow via the app. Without a booking, he needs to look for an available spot via the app and start a booking process for it.
 	
 	\descitem{User wants to be notified at the end of the charge}
 	Bob started the charging process a couple of hours ago for a 2 hours time frame. The system checks the booking time-frame and sends a notification to Bob's smartphone with the details of the charging process (e.g. cost and battery status)
 	
 	\descitem{User wants to pay for the service}
-	Bob goes to retrieve his car from the station, he uses the app to complete the charging process and the system automatically bills his credit card / Paypal account with the required amount.
+	Bob goes to retrieve his car from the CP, he uses the app to complete the charging process and the system automatically bills his credit card / Paypal account with the required amount.
 \end{enumerate}
 
 \newpage
@@ -64,25 +64,25 @@ Before going deeply into details about the product functions that needs to be de
 
 \begin{itemize}
 	\item As the system acts as a middleware between the User and the Charging Points, a structured communication protocol is needed. This system will be design to communicate using the Open Charge Point Interface (OCPI) standard.
-	\item As OCPI enables a very complex pricing system, to keep the scope of the project simple, the system will set a per-KW price based on the pricing of the various Charging Point. The prices are automatically synced with the prices of the CP.
+	\item As OCPI enables a very complex pricing system, to keep the scope of the project simple, the system will use only the per-KW price (also called energy based price), with differentiation between fast charging and non-fast charging. Time limited promotions are also allowed. The prices are synced by the CPMSs via the PUSH interface defined in the OCPI protocol. (i.e. at any time, each CPMS can define only two active prices: standard and fast-charging)
+	\item Another limitation that we need to impose to reduce the complexity is the various connector types. We define only two generic types of connector: standard and fast-charging, each type has its own pricing defined by the CPMS.
 \end{itemize}
 
 \subsection{Nearby charging points overview}
-The users want to quickly find nearby charging points and see their status, the available slots, their connectors and the tariffs, this will allow them to decide where to charge their vehicles.\\
+The users want to quickly find nearby charging points and see their status, the available slots, their connectors and the tariffs, this will allow them to decide where to charge their vehicles or not.\\
 To achieve this, the system should act as an aggregator for multiple CPMS, collect the data in real-time and display all the information on a map.
 
 \subsection{Booking a charging slot}
 When a user has decided where to charge his vehicle, he can use the same system to book the slot for a specific time frame.\\
-As for the OCPI standard booking is managed by the CPMS, the system will need to require booking confirmation from the CPMS.
+As for the OCPI standard booking is managed by the CPMS, the system will need to require booking confirmation from the CPMS.\\
+Also OCPI standard allows only reservations that starts at the time of the request so only those type of booking will be considered in the project.
 
 \subsection{Unlocking a charging slot and starting a charge session}
-When a user arrives at the charging station he can use the app to review the booking details and check to which slot to connect the vehicle. He connects the car via the correct plug provided by the charging station and, afterward, he uses the app to authenticate into the system and start charging. Even if OCPI standard allows for other types of session initialisation, our system will not deal with them.
+When a user arrives at the charging point he can use the app to review the booking details and check to which slot to connect the vehicle. He connects the car via the correct plug provided by the charging slot and, afterward, he uses the app to authenticate into the system and start charging. Even if OCPI standard allows for other types of session initialisation, our system will not deal with them.
 
 \subsection{Checking the status of the charge session}
 After initiating the charge the user will be able to view the status of the session (charge level and estimated time remaining) from the app.\\
 The system automatically retrieves the needed information from the CPMS and eventually notifies the user about any problem that can occur (e.g. charge session is interrupted by the Charge Point)
-
-\newpage
 
 \subsection{Completing the charge session and paying for the service}
 A user can complete the charge session when the booked time frame is passed or even before the end of the charge.\\
@@ -117,11 +117,13 @@ For the scope of the document, we can identify a single user type for the eMall 
 	\hline
 	D1 & There is a system admin that does the initial setup of the system and manages it\\
 	\hline
-	D2 & System admin adds information about charging point, slots and CPMS to the database\\
+	D2 & System admin adds information about CPMS to the database\\
 	\hline
 	D3 & Users accept the contract and terms of service when signing up into the system\\
 	\hline
 	D4 & Users always complete their booked charging sessions\\
+	\hline
+	D5 & PSPs always process successfully the payments\\
 	\hline
 \end{tabular}
 

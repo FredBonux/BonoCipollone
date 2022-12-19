@@ -53,6 +53,10 @@ As this system will act as a middleman between the users and the various Chargin
 	\hline
 	WP8 & CPO completes the maintenance of a Charging Slot\\
 	\hline
+	WP11 & CPO update pricing policies (e.g. new special offer)\\
+	\hline
+	WP10 & CPO update Charging Points information (e.g. new Charging Point)\\
+	\hline
 \end{tabular}
 
 \subsubsection{Payment Service Provider side}
@@ -93,6 +97,10 @@ As this system will act as a middleman between the users and the various Chargin
 	\hline
 	SP10 & System authenticate the charging session for the CPMS\\
 	\hline
+	SP13 & CPMS sends pricing information to the System\\
+	\hline
+	SP14 & CPMS sends Charging Points information to the System\\
+	\hline
 \end{tabular}
 
 \subsubsection{Payment Service Provider side}
@@ -110,9 +118,10 @@ As this system will act as a middleman between the users and the various Chargin
 
 \begin{tabular}{|p{5cm}|p{10cm}|}
 	\hline
-	Charging plug & Physical connector that allow to transfer energy to the connected vehicle\\
+	Connector \newline Charging Socket & Physical connector that allow to transfer energy to the connected vehicle\\
 	\hline
-	Charging slot & Physical device with multiple Charging plugs that can charge electric vehicles\\
+	Charging slot & Physical device with multiple Connectors that can charge electric vehicles.\newline
+	NOTE: from OCPI definitions a Charging Slot can have up to one connector active at any time (i.e. can charge only one Vehicle at any time) \\
 	\hline
 	Charging Point & Physical structure composed by multiple Charging Slots\\
 	\hline
@@ -157,7 +166,8 @@ As this system will act as a middleman between the users and the various Chargin
 
 \section{Revision History}
 \begin{itemize}
-	\item v1.0 - 21 December 2022
+	\item v1.0 - 10 December 2022
+	\item v1.1 - 19 December 2022 | fix naming and update pricing management
 \end{itemize}
 
 \section{Related Documents}
