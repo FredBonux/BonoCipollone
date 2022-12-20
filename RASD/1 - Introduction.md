@@ -20,7 +20,7 @@ G11 - Allow CPOs to manually decide whether to use or store energy inside batter
 
 ## 1.2 Scope 
 
-Each charging station managed by the Charging Point Operators (CPO) has an IT infrastructure called Charge Point Management System (CPMS). Through this application, administrators are able to manage the various charging stations such as the selection of the DSO and the use of the batteries present in the stations. The CPMS must be able to manage the station, independently deciding the most optimal energy management policy. The CPMS is able to connect the charging station with the rest of the e-Charging ecosystem, allowing an interaction with the user and with the various energy suppliers (Distribution System Operators (DSO)).
+Each charging station managed by the Charging Point Operators (CPO) has an IT infrastructure called Charge Point Management System (CPMS). Through this application, administrators are able to manage the various charging stations such as the selection of the DSO and the use of the batteries present in the stations. The CPMS must be able to manage the station,deciding independently the most optimal energy management policy. The CPMS is able to connect the charging station with the rest of the e-Charging ecosystem, allowing an interaction with the user and with the various energy suppliers (Distribution System Operators (DSO)).
 
 
 To interface with the rest of the ecosystem, the following protocols are used:
@@ -57,10 +57,10 @@ SP3 - eMSPs receives information about the state of charge of the car
 
 Charging point side shared phenomena
 SP4 - System authenticate the charging session
-SP5 - The system activates a charging socket of an EVSE, making it available
-SP6 - The system deactivates a charging socket of an EVSE
-SP7 - EVSE sends to the system information about the charging status of the car
-SP8 - EVSE communicates diagnostic information to the system
+SP5 - The system activates a charging socket of an charging slot, making it available
+SP6 - The system deactivates a charging socket of an charging slot
+SP7 - charging slot sends to the system information about the charging status of the car
+SP8 - charging slot communicates diagnostic information to the system
 
 CPO side shared phenomena
 
@@ -78,6 +78,8 @@ SP13 - System notifies the CPO of a component malfunction
 | :---: | :---: |
 | Internal status | Information on : amount of energy available in its batteries, if any,  number  of  vehicles  being  charged  and,  for  each  charging  vehicle,  amount  of  power absorbed and time left to the end of the charge |
 | External status | Information on : number of charging sockets available, their type such as slow/fast/rapid, their cost, and, if all sockets of a certain type are occupied, the estimated amount of time until the first socket of that type is freed|
+|Cahrging slot| Charging column which is able to recharge electric vehicles using charging sockets
+
 
 
 
@@ -89,6 +91,7 @@ SP13 - System notifies the CPO of a component malfunction
 |CPO | Charging Point Operator 
 |CPMS | Charging Point Management System
 |OCPI | Open Charge Point Interface
+|DSO| Distribution Management System 
 |EV | Electric Vehicle
 
 ## 1.4 Revision history
