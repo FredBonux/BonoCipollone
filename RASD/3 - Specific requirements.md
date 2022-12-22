@@ -23,12 +23,13 @@ TODO: insert diagram
 
 ### View information about energy price 
 - Actior :
-    CPO admin 
+    CPO admin, DSOs
 - Entry condition:
     - The admin is logged in 
 - Event flow:
     1. The admin taps on the "View energy prices" button 
-    2. The system shows the list of prices proposed by the various DSOs, also indicating the type of energy
+    2. The system request to DSOs informations 
+    3. The system shows the list of prices proposed by the various DSOs, also indicating the type of energy
 - Exit condition:
     1. The admin goes yo another section or close the page 
 - Exeptions:
@@ -68,8 +69,6 @@ TODO: insert diagram
 - Exeptions:
     1. The system is unavaible
 
-### Start a charging session
-
 
 ### Start a booked charging session
 - Actior :
@@ -82,21 +81,51 @@ TODO: insert diagram
     3. The system sends the command to the charging point
     4. The system sends the confirmation to the eMSP
 - Exit condition:
-    1. The charging session has started
-    2. The charging session has been denied
+    1. eMSP receive a response
 - Exeptions:
     1. The charging station is unreachable
     2. The CPMS does not confirm the reservation
     3. The charging point does not confirm activation
 
+### End a charging session
+- Actor: 
+    eMSP, CP 
+- Entry condition:
+    1. There is a active session 
+- Event flow:
+    1. The system receives the request to end the session from the eMSP
+    2. The system sends the request to end the session to the CP
+    3. The system receives the end session confirmation from the CP
+    4. The system send the confirm to the eMSP
+- Exit condition:
+    1. eMSP receives a response
+- Exeptions:
+    1. The CP is unreachable
+    2. The CP cannot end the session
+    3. eMSP cannot receive the response
 
-
-
-
+### Update the state of the charging session
+- Actor: 
+    eMSP, CP 
+- Entry condition:
+    1. There is a active session 
+- Event flow:
+    1. The system receives information about the status of the charging session from the CP
+    2. The system sends information about the status of the charging session to the eMSP
+- Exit condition:
+    1. eMSP receives information about the status of the charging session
+- Exeptions:
+    1. eMSP is unreachable
+    2. The CP cannot reach the system
 
 
 ## 3.3 Sequence diagrams 
-Here are presented the sequence diagrams for the most important use cases.
+Here are presented the sequence diagrams for the most important use cases.Only the "success" flow is displayed, every exception in the communication flow results in an error message displayed to the log file and a request retry.
 
 
-    
+
+
+## 3.4 Functional Requirement
+
+The system should:
+    - 
