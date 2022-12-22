@@ -52,6 +52,8 @@ The system should be able to communicate with the charging slots present in each
 
 ## 2.3 User characteristics
 
+We can identify a CPO administrator as the only user of the CPMS system. For the purpose of the project we assume that situations in which the CPO administrator is not present or registered are not allowed.
+
 1. CPO Administrators
 > The CPO will utilize the CPMS to oversee their charging stations and manually address tasks such as selecting which DSO to obtain energy from or establishing special offers for charging stations. 
 2. Maintainer
