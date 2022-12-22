@@ -5,17 +5,15 @@
 The purpose of this document is to analyze and define the goals and requirements of the Charging Point Management System (CPMS), the IT structure capable of managing a car charging station.
 
 ### 1.1.1 Goals
-G1 - Allow users to start and end a charging session
-G2 - Allow users to be notified when the charging process is completed
+G1 - Allow eMSP to start and end a charging session
+G2 - Allow eMSP to be notified when the charging process is completed
 G3 - Allow CPO to have information about the internal status of a charging station
-G4 - Allow eMSPs to have information about the status and availability of the charging sockets
-G5 - Allow eMSPs to have information about the current energy price
-G6 - Allow eMSPs to have information about the position of the charging stations
-G7 - Allow eMSPs to have information about the status of the car charging process 
-G8 - Allow CPO to have information about the external status of a charging station
-G9 - Allow CPOs to manually decide the current energy price
-G10 - Allow CPOs to manually decide from witch DSO acquire energy 
-G11 - Allow CPOs to manually decide whether to use or store energy inside batteries
+G4 - Allow eMSPs to have information about the current tariffs
+G5 - Allow eMSPs to have information about the position of the charging stations
+G6 - Allow eMSPs to have information about the status of the car charging process 
+G7 - Allow CPOs to manually decide the current energy price
+G8 - Allow CPOs to manually decide from witch DSO acquire energy 
+G9 - Allow CPOs to manually decide whether to use or store energy inside batteries
 
 
 ## 1.2 Scope 

@@ -127,5 +127,31 @@ Here are presented the sequence diagrams for the most important use cases.Only t
 
 ## 3.4 Functional Requirement
 
-The system should:
-    - 
+- The system should:
+    1. Allow to book a charging session on a specific CP
+    2. Allow to start a charging session on a specific CP
+    3. Allow to stop a charging session on a specific CP
+    4. Forward information about the state of a charging session to the eMSP
+    5. Allow Login for CPO
+    6. Allow to view information about the internal status of a charging station
+    7. Forward of the offered tariffs 
+    8. Allow CPO to set or change tariffs
+    9. Allow CPO to enter static information about charging stations
+    10. Forward information about the location of charging stations
+    11. Forward the status of the charging session
+    12. Allow CPOs to change the settings and management settings of the charging station
+
+Mapping: 
+G1 -> 1,2,3
+G2 -> 1,2,3,4
+G3 -> 5,6
+G4 -> 5,7,8
+G5 -> 9,10
+G6 -> 11
+G7 -> 5, 12
+G8 -> 5, 12
+G9 -> 5, 12
+
+
+
+## 3.5 Performance Requirement 
