@@ -155,3 +155,40 @@ G9 -> 5, 12
 
 
 ## 3.5 Performance Requirement 
+
+As most of the Charge Points are located in the city centre, where internet connectivity is usually optimal and at high speed, the system does not have special requirements for performances related to bandwidth usage. Also, no particular usage spikes are expected at any moment, so server load should be directly connected to the number of users and Charge Points covered by the system.
+
+## 3.6 Design Constraints 
+
+### 3.6.1 Standard compliance 
+For the legal aspect it is necessary to follow the requirements of the GDPR regarding the management of sensitive data of users and CPOs. While to allow interconnection with the different eMSPs and CPs, it is necessary to follow the OCPI and OCPP standards in the implementation of communication protocols and data structures.
+
+## 3.6.2 Hardware limitations 
+No particular hardware are required to use the System
+
+
+## 3.7  Non-functional Requirements
+- NFR1:
+    - Reliability impacts the system usage and the related business, to keep it as high as possible, fall back servers shall be considered while designing the infrastructure.
+- NFR2:
+    - Availability also has a huge impact but as this is not a sensible service that needs to be up and running at all time, a good compromise with cost effectiveness can be considered.
+- NFR3:
+    - The basic security standard "de-facto" measurements should be followed, SSL and HTTPS should be enough to offer both security and ease to use.
+
+## 3.8 EXTERNAL INTERFACE REQUIREMNTS 
+
+### 3.8.1 User Interfaces 
+?????????????????????????
+
+### 3.8.2 hardware interfaces 
+Non ci sono hardware interfaces 
+
+### 3.8.3 Communication interfaces 
+
+- As the system needs to communicate with multiple actors, the following communication interfaces are required:
+    1. eMSP communication:
+    > To share data with the various eMSPs, an active, low-latency internet connection is needed. Also is required that the eMSP follows the OCPI protocol.
+    2. CP communication:
+    > To share data with the various CPs, an active, low-latency internet connection is needed. Also is required that the eMSP follows the OCPp protocol.
+
+
