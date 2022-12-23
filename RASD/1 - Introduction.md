@@ -28,22 +28,20 @@ To interface with the rest of the ecosystem, the following protocols are used:
 
 ### 1.2.1 World Phenomena 
 
-User side
-- WP1 - User decides to charge the electric vehicle
-- WP2 - User goes to the Charging Point
-- WP3 - User connects the Electric vehicle to the Charging Slot
-- WP4 - User disconnects the Electric Vehicle from the Charging Slot
+eMSP side
+- WP1 - eMSP prompts you to start a charging session
+- WP2 - eMSP wants to know the rates offered by the various CPMS
+- WP3 - eMSP wants to book a charging session at a specific charging point
+
 
 Charging Point side
-- WP5 - Charging Point starts to provide energy to the Electric Vehicle of the User
-- WP6 - Charging Point ends to provide energy to the Electric Vehicle of the User
 - WP7 - CPO starts the maintenence of a Charging Slot
 - WP8 - CPO completes the maintenence of a Charging Slot
 - WP9 - CPO decides to check view the internal status of a charging station
 - WP10 - CPO decides to set up an energy management policy
 - WP11 - CPO decides to change the price of the energy sold
-- WP13 - CPO decide from whitch DSO acquire energy
-- WP14 - DSO provide energy to the charging station        
+- WP13 - CPO decides to change from whitch DSO acquire energy
+- WP14 - DSO provide energy to the charging point        
 
 ### 1.2.2 Shared Phenomena
 Since there is no direct interaction with users, their actions with the CPMS take place through the eMSPs.
@@ -51,7 +49,7 @@ Since there is no direct interaction with users, their actions with the CPMS tak
 eMSPs side shared phenomena
 SP1 - eMSPs request information about the charging points
 SP2 - eMSPs books a charging session 
-SP3 - eMSPs receives information about the state of charge of the car
+SP3 - eMSPs receives information about the state of the charging session
 
 Charging point side shared phenomena
 SP4 - System authenticate the charging session
@@ -74,7 +72,7 @@ SP13 - System notifies the CPO of a component malfunction
 ### 1.3.1 Definitions
 | Definition | Description |
 | :---: | :---: |
-| Internal status | Information on : amount of energy available in its batteries, if any,  number  of  vehicles  being  charged  and,  for  each  charging  vehicle,  amount  of  power absorbed and time left to the end of the charge |
+| Internal status | Internal status and "The amount of energy stored in the batteries, if any, the amount of vehicles currently charging, and the current energy management settings. |
 | External status | Information on : number of charging sockets available, their type such as slow/fast/rapid, their cost, and, if all sockets of a certain type are occupied, the estimated amount of time until the first socket of that type is freed|
 |Cahrging slot| Charging column which is able to recharge electric vehicles using charging sockets
 
@@ -85,6 +83,7 @@ SP13 - System notifies the CPO of a component malfunction
 | Abbreviation | Description |
 | :---: | :---: |
 |eMSP | eMobility Service Provider |
+|CP | Charge Point / Location|
 |CP | Charge Point / Charging Point |
 |CPO | Charging Point Operator 
 |CPMS | Charging Point Management System

@@ -12,7 +12,7 @@ TODO: insert diagram
     1. The admin open the web portal of the CPMS
     2. The admin taps the "LogIn" button 
     3. The admin fills up the form
-    4. The system validates the data and grants access to the user 
+    4. The system validates the data and grants access to the admin
     5. The system redirect the admin to the main page
 
 - Exit condition:
@@ -106,7 +106,7 @@ TODO: insert diagram
 
 ### Update the state of the charging session
 - Actor: 
-    eMSP, CP 
+    eMSP, CS
 - Entry condition:
     1. There is a active session 
 - Event flow:
@@ -128,9 +128,9 @@ Here are presented the sequence diagrams for the most important use cases.Only t
 ## 3.4 Functional Requirement
 
 - The system should:
-    1. Allow to book a charging session on a specific CP
-    2. Allow to start a charging session on a specific CP
-    3. Allow to stop a charging session on a specific CP
+    1. Allow to book a charging session on a specific CS
+    2. Allow to start a charging session on a specific CS
+    3. Allow to stop a charging session on a specific CS
     4. Forward information about the state of a charging session to the eMSP
     5. Allow Login for CPO
     6. Allow to view information about the internal status of a charging station
@@ -188,7 +188,7 @@ Non ci sono hardware interfaces
 - As the system needs to communicate with multiple actors, the following communication interfaces are required:
     1. eMSP communication:
     > To share data with the various eMSPs, an active, low-latency internet connection is needed. Also is required that the eMSP follows the OCPI protocol.
-    2. CP communication:
+    2. CS communication:
     > To share data with the various CPs, an active, low-latency internet connection is needed. Also is required that the eMSP follows the OCPp protocol.
 
 

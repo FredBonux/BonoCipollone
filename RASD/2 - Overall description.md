@@ -2,22 +2,22 @@
 Effort: 
 
 ## 2.1.1 - Scenarios 
+Antony, the owner of two charging stations, wants to optimize their use and join the e-Charging ecosystem. He contacts customer service and arranges for the installation of a CMPS on a cloud server. Antony then connects his stations to the internet, connecting each charging slot. With the assistance of technicians, he inputs all the necessary information into the system to ensure it can effectively manage his two charging stations. After the installation is completed, Antony accesses the CPMS portal and offers a discount on the prices he charges to celebrate the new system. The eMSP network is notified of the presence of the new CPMS. The DSOs located at the various stations are also connected, allowing for dynamic selection of the energy source
 
-### 1. User wants to start a charge at the station
-Bob goes to a station and wants to start charging his vehicle, with a booking for that time frame, 
-he simply needs to park the car in the correct spot, connect it with the correct plug and enable the charge
-flow via the app. Without a booking, he needs to look for an available spot via the app and start a booking
-process for it.
-
-Mando un messaggio a eMSP del comletamento della carica 
 
 ### 2. CPO wants to change the price of the energy sold
 Alice is the administrator of a charging station and has decided to increase the price of energy. Alice opens the internet portal of her CPMS via a browser. By entering the credentials, Alice accesses the interface concerning the proposed price. After a careful analysis, Alice changes the price and presses the "Save Changes" button.
 
 ### 3. CPO wants to disable a charging socket to perform maintenance
-Fabio is a maintenance technician at a charging station and has to carry out routine checks on the correct functioning of a charging socket. Fabio opens the internet portal of her CPMS via a browser. By entering the credentials, Fabio accesses the booking interface. Fabio selects an available time slot and presses the "Maintenance" button.
+Fabio is a CPO and has to carry out routine checks on the correct functioning of a charging socket. Fabio opens the internet portal of her CPMS via a browser. By entering the credentials, Fabio accesses the booking interface. Fabio selects an available time slot and presses the "Maintenance" button.
 
 TODO: Insert scenarios from eMSPs point of view
+
+### eMSP wants to start a charge at the CP
+eMSP wants to start a new charging session, but without having a reservation at the indicated charging point. then sent an immediate booking request for a charging slot to the system. The system verifies that there is availability in that particular station. Since there is availability, the system adds the session to the schedule and sends a confirmation message to the eMSP.
+
+### eMSP wants to be notified at the end of the charge 
+The eMSP wants to receive information regarding the status of the current charging session identified by a booking_id. The system therefore every time it receives information on the status of the session from the charging slot, notifies the eMSP about the status.
 
 ## 2.1.2 - Class diagram
 
