@@ -56,7 +56,7 @@ Here are displayed the most important use case diagrams for the various actors.
 	{The admin is logged in}
 	{
 	\begin{enumerate}[1.]
-	\item The form data are incomplite or not valid 
+	\item The form data are incomplete or not valid 
 	\item The system cannot process the data
 	\end{enumerate}
 	}
@@ -86,7 +86,7 @@ Here are displayed the most important use case diagrams for the various actors.
 	{The admin is logged in}
 	{
 	\begin{enumerate}[1.]
-	\item The amin select the charging station from the list
+	\item The admin select the charging station from the list
 	\item The admin taps on the "Energy management" button
 	\item The system shows a page with all the information on the current energy management
 	\item The admin taps on the "Modify" button
@@ -98,7 +98,7 @@ Here are displayed the most important use case diagrams for the various actors.
 	{The admin goes yo another section or close the page }
 	{
 	\begin{enumerate}[1.]
-	\item The system is unavaible
+	\item The system is unavailable
 	\item Some or all of the DSOs are unavailable or unreachable
 	\end{enumerate}
 	}
@@ -109,7 +109,7 @@ Here are displayed the most important use case diagrams for the various actors.
 	{The admin is logged in }
 	{
 	\begin{enumerate}[1.]
-	\item The amin select the charging station from the list
+	\item The admin select the charging station from the list
 	\item The admin taps on the "System monitor" button
 	\item The system shows a page with all the information about the charging station status
 	\end{enumerate}
@@ -128,35 +128,35 @@ Here are displayed the most important use case diagrams for the various actors.
 	\begin{enumerate}[1.]
 	\item The system receives the command from the eMSP
 	\item The system verifies the validity of the reservation
-	\item The system sends the command to the charging point
+	\item The system sends the command to the charging slot
 	\item The system sends the confirmation to the eMSP
 	\end{enumerate}
 	}
 	{eMSP receive a response}
 	{
 	\begin{enumerate}[1.]
-	\item The charging point is unreachable
+	\item The charging slot is unreachable
 	\item The system does not confirm the reservation
-	\item The charging point does not confirm activation
+	\item The charging slot does not confirm activation
 	\end{enumerate}
 	}
 	
 	\descitem{End a charging session}
-	\usecase{eMSP, CP }
+	\usecase{eMSP, CS }
 	{There is a active session }
 	{
 	\begin{enumerate}[1.]
 	\item The system receives the request to end the session from the eMSP
-	\item The system sends the request to end the session to the CP
-	\item The system receives the end session confirmation from the CP
+	\item The system sends the request to end the session to the CS
+	\item The system receives the end session confirmation from the CS
 	\item The system send the confirm to the eMSP
 	\end{enumerate}
 	}
 	{eMSP receives a response}
 	{
 	\begin{enumerate}[1.]
-	\item The CP is unreachable
-	\item The CP cannot end the session
+	\item The CS is unreachable
+	\item The CS cannot end the session
 	\item eMSP cannot receive the response
 	\end{enumerate}
 	}
@@ -291,7 +291,7 @@ No particular hardware are required to use the System.
 	\hline
 	NFR2 & Availability also has a huge impact but as this is not a sensible service that needs to be up and running at all time, a good compromise with cost effectiveness can be considered.\\
 	\hline
-	NFR3 & The basic security standard "de-facto" measurements should be followed, SSL and HTTPS should be enough to offer both security and ease to use.\\
+	NFR3 & The basic security standard "defacto" measurements should be followed, SSL and HTTPS should be enough to offer both security and ease to use.\\
 	\hline
 \end{tabular}
 }
@@ -303,8 +303,7 @@ No particular hardware are required to use the System.
 
 \section{External Interface Requirements}
 \subsection{User Interfaces}
-The user interface for the eMSP system is a mobile application available for both iOS and Android devices.\\
-Also, as this will be a publicly available application, accessibility should be considered a priority when designing the interface.
+The CPO's user interface can be accessed via a web portal that can be used on any device with an internet connection and a web browser.
 
 \subsection{Hardware interfaces}
 There are no hardware interfaces

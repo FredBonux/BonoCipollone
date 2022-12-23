@@ -38,20 +38,20 @@
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{user_state_diagram}
-\caption{State diagram for user registration flow}
-\end{figure}
-
-\begin{figure}[h]
-\centering
 \includegraphics[width=\textwidth]{booking_state_diagram}
 \caption{State diagram for Booking}
 \end{figure}
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=6.2cm]{charging_session_state_diagram}
+\includegraphics[width=\textwidth]{charging_session_state_diagram}
 \caption{State diagram for a Charging Session}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{charging_session_status}
+\caption{State diagram for monitor session status}
 \end{figure}
 
 \clearpage
@@ -73,9 +73,9 @@ The dynamic management of the needed energy resources is one of the CPMS's main 
 The system must be able to communicate via the OCPI protocol with the various eMSPs that make port on the network. Through this protocol, the two actors will be able to communicate information such as: position of the charging stations managed by the CPO, rates offered, availability for reservations, type of charging available. \\
 
 \subsection{CPOs, station monitoring and management}
-It must be possible to monitor and display information such as: tariffs offered, current cost of energy purchased from DSOs, battery status, reservation shedules. Furthermore, the admin must be able, through a dedicated portal, to make changes and decisions on the management of the station.
+It must be possible to monitor and display information such as: tariffs offered, current cost of energy purchased from DSOs, battery status, reservation schedules. Furthermore, the admin must be able, through a dedicated portal, to make changes and decisions on the management of the station.
 
-\subsection{Manage the reservations shedule}
+\subsection{Manage the reservations schedule}
 The system should be able to manage and keep track of the reservations that are made by the various eMSPs. The system must be able to handle the modification, if possible, or cancellation of reservations.
 
 \subsection{Interaction with DSOs}
@@ -107,6 +107,6 @@ We can identify a CPO administrator as the only user of the CPMS system. For the
 	\hline
 	D3 & DSOs are connected and entered into the system by the admin during the initial set up\\
 	\hline
-	D4 & Users always complite their booked charging session\\
+	D4 & Users always complete their booked charging session\\
 	\hline
 \end{tabular}
