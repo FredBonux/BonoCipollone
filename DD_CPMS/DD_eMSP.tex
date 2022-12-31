@@ -1,0 +1,48 @@
+\documentclass[a4paper]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage[shortlabels]{enumitem}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\usepackage{caption}
+\usepackage{soul}
+\usepackage{blindtext}
+\usepackage{array}
+\graphicspath{{./images/}}
+\begin{document}
+
+%%The two following lines remove the line "Chapter n" at the beginning of each chapter, before the title
+%\titleformat{\chapter}[display]
+%  {\normalfont\bfseries}{}{0pt}{\Large}
+\titleformat{\chapter}[hang] 
+{\normalfont\huge\bfseries}{\thechapter}{1em}{} 
+
+\title{eMSP system design}
+\author{Federico Bono, Daniele Cipollone}
+\date{\today}
+
+\newcommand\descitem[1]{\item{\bfseries #1}\\}
+
+\input{sections/0-Title_page.tex}
+
+
+\newgeometry{top=3cm}
+\tableofcontents
+\listoffigures
+\restoregeometry
+
+\input{sections/1-Introduction.tex}
+\input{sections/2-Overview.tex}
+
+
+\end{document}
