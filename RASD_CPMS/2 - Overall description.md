@@ -66,3 +66,5 @@ D2 - The system admin adds the necessary information about charging point, slots
 D3 - DSOs are connected and entered into the system by the admin during the initial set up
 D4 - Users always complite their booked charging session
 
+
+
