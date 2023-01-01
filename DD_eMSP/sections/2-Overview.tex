@@ -62,13 +62,60 @@ The following schema shows all the main components and interfaces of the system.
 	\item \textbf{DBMS}: Database Management System
 \end{itemize}
 
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{component_diagrams/class_diagram}
+\caption{Class diagram for the main interfaces of the System}
+\end{figure}
+
+\clearpage
+\newpage
+
+\section{Deployment view}
+In this section we introduce a detailed view of the system and various component from a deployment cycle perspective. The following schemes highlight the environments and the tools to be used for the system.
 
 
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{component_diagrams/deployment_diagram}
+\caption{Deployment diagram for the System}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{Personal Device}: Mobile device used by users to run the Mobile APP to communicate with the system
+	\item \textbf{Load Balancer}: A web server that balances incoming requests between multiple backend servers
+	\item \textbf{Backend Server / Virtual Private Server}: Physical device where is installed the Docker Image of the Backend APP. Multiple replicas are possibile and preferable as they will increase both reliability and availability of the system. Keep in mind that without replicating the data layer, there will always be a bottleneck of performances due to the communication between application and data layers.
+	\item \textbf{Database Server}: Host the database of the system. Multiple local replicas can improve read performances but also increase complexity.
+\end{itemize}
+
+\clearpage
+\newpage
+
+\section{Runtime view}
+In this section are shown the sequence diagrams for the various functionalities of the system. To simplify the description there is an initial generic sequence the summarize the routing and authorization part of the request handling. Also, as all the request go through the router, the actors that sends the request to the router are omitted.
+
+\subsection{Generic Routing and Authorization}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{sequences/auth_request}
+\caption{Generic Routing and Authorization flow for a generic request}
+\end{figure}
+
+When a request is received by the application web server, it goes through the Router component. It acts as an authorization middleware. 
+As Authorization is needed, the whole Auth Service, Model and DBMS components are envolved.
+At the end, if authorization has been completed successfully, the request is forward to the dedicated service.
 
 
+\subsection{View Charging Point locations}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{sequences/get_locations}
+\caption{View Charging Point locations}
+\end{figure}
+\clearpage
 
-
-
+\subsection{Book a charging session}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{sequences/book_session}
+\caption{Book a charging session}
+\end{figure}
+\clearpage
 
 
 
