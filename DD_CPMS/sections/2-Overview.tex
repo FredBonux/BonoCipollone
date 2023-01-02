@@ -5,21 +5,19 @@ As anticipated in the previous chapter, the architecture selected for the design
 
 This architecture allow us to split the implementation into three layers:
 \begin{enumerate}
-	\item Presentation: is the mobile application that will be used by the final users. It allows all the interactions with the system and will also be used as a communication endpoint for the notifications.
-	\item Application: is the backend of the system, all the business logic and the various connections between the system and the external services are implemented here.
+	\item Presentation: it is the online web page that will be used by the CPOs to access all the information and settings of their charging stations
+	\item Application: is the backend of the system, dove sono implementati all the logics related to the energy management by the stations, the management of reservations, the interactions with the various eMPS and the DSOs.
 	\item Data: is the layer responsible to expose connectivity interfaces from the database. It will be a DBMS.
 \end{enumerate}
-All the layers communicate in a linear way: the Presentation one interacts only with the Application layer, the same as the Data layer. With this architecture the presentation and the Data layers have no direct communication path, this allow to develop all the business logic only in the Application layer.
-Other advantages of using this architecture are that the various layers can be developed with different technologies and that they can be duplicated and differentiated (i.e. there can be multiple presentation layers that interact with the same application layer)
+
+All the layers communicate in a linear way: the Presentation one interacts only with the Application layer, the same as the Data layer. With this architecture the presentation and the Data layers have no direct communication path.
+Other advantages of using this architecture are that the various layers can be developed with different technologies and that they can be duplicated and differentiated.
 
 The main reasons behind the choice are:
 \begin{itemize}
 	\item We are not the producer of the data
 	\item We need to integrate different external services
-	\item Separate the business logic from the data to:
-	\begin{itemize}
-		\item Allow a parallel development with multiple teams specialized in the single tiers
-		\item Allow to use different technologies for the different tiers
+	\item TODO: INSERIRE ALTRE MOTIVAZIONI !!! 
 	\end{itemize}
 \end{itemize}
 
