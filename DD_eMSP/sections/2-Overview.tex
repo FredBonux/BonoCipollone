@@ -115,8 +115,27 @@ At the end, if authorization has been completed successfully, the request is for
 \includegraphics[width=\textwidth]{sequences/book_session}
 \caption{Book a charging session}
 \end{figure}
+
+\subsection{Start a charging session}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{sequences/start_session}
+\caption{Start a charging session}
+\end{figure}
 \clearpage
 
+\subsection{Pay for a completed charging session}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{sequences/session_payment}
+\caption{Pay for a completed charging session}
+\end{figure}
+\clearpage
+
+\section{Selected architectural style and patterns}
+\begin{itemize}
+	\item \textbf{Three-tier architecture}: As stated before the three-tier architecture was chosen because our system is not the producer of the data, and that there is the need for implementing different functionalities (e.g. payments) and external services.
+	\item \textbf{Monolith architecture}: To simplify the development and the deployment of the system, to avoid the so called "vendor lock-in" by choosing a specific service provider for the microservices infrastructure and mainly because no usage spikes are expected, the monolith architecture has been chosen. That means that all the application server replicas contains the whole backend application and not the single services.
+	\item \textbf{Authentication with Access Token}: As there are no specific requirements on the authentication functionality, the simply access token pattern can be considered a good suit for the system. 
+\end{itemize}
 
 
 
