@@ -29,9 +29,13 @@ Based on those functionalities we can define the following development path:
 	\item \textbf{Notifications}\\ We implement a event callback on the Booking Model that will trigger the Notification Service to send a "charging completed" notification to the user devices.
 	\item \textbf{PSP integration}\\ We implement another event callback on the Booking Model to trigger the payment from the PSP Service to charge the user for the service.
 \end{enumerate}
+\newpage
 
 \section{Additional testing}
-
+After development and integration we will run some system-level tests.
+First test to run is on non-functional requirements, developers need to test accessibility features and base performance, doing so we can easily find the most important bottlenecks of the application.
+Another test that is useful to run is the so called "chaos test": various components of the system are disconnected on purpose to try to verify the behaviour of the system, the goal here is to check that the system fails safely, without losing or leaking data. 
+The final test that will be run is the acceptance test: the system will be tested with real users in the production environment to verify that is really useful to them.
 
 
 
