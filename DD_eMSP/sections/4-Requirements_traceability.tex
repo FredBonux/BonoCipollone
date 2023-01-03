@@ -1,0 +1,123 @@
+\chapter{Requirements Traceability}
+\section{Functional requirements}
+In the following table are summarized the requirements extracted from the RASD.\\
+
+\begin{tabular}{|c|l|}
+	\hline
+	\bf{Requirement} & \bf{Description} \\
+	\hline
+	\hline
+	R1 & Allow Guest User sign-up\\
+	\hline
+	R2 & Allow Login for Active User\\
+	\hline
+	R3 & Require verification for email\\
+	\hline
+	R4 & Require verification for payment method\\
+	\hline
+	R5 & Allow to get a list of Charge Point\\
+	\hline
+	R6 & Allow to book a charging session on a specific Charge Point\\
+	\hline
+	R7 & Allow to start a charging session for a specific booking\\
+	\hline
+	R8 & Allow to view the list of bookings\\
+	\hline
+	R9 & Allow to complete a charging session\\
+	\hline
+	R10 & Forward the payment request to the PSP\\
+	\hline
+	R11 & Allow to get a list of Charge Point based on the location\\
+	\hline
+	R12 & Allow to filter the list of Charge Point based on the location\\
+	\hline
+	R13 & Be able to send push notifications to the user device\\
+	\hline
+	R14 & Periodically poll the various CPMS to cache the data\\
+	
+	\hline
+\end{tabular}
+
+\section{Components mapping}
+To keep the mapping simple, we define some abbreviations for the components.\\
+
+\begin{tabular}{|c|l|}
+	\hline
+	\bf{} & \bf{Component} \\
+	\hline
+	\hline
+	AS & Application Server\\
+	\hline
+	APP & Mobile APP\\
+	\hline
+	RT & Router\\
+	\hline
+	AT & Auth Service\\
+	\hline
+	GE & Geo Service\\
+	\hline
+	BS & Booking Service\\
+	\hline
+	NS & Notification Service\\
+	\hline
+	PS & PSP Service\\
+	\hline
+	OC & OCPI Service\\
+	\hline
+	OR & ORM\\
+	\hline
+	MD & Models (User, CP, Booking Model...)\\
+	\hline
+\end{tabular}
+
+\section{Components mapping on Requirements}
+
+\begin{tabular}{|p{1.5cm}|p{3cm}|p{10cm}|}
+	\hline
+	\bf{Comp.} & \bf{Requirements} & \bf{Reason} \\
+	\hline
+	\hline
+	AS & R* & Application server is needed for all the functionalities as it is the foundation for the system\\
+	\hline
+	APP & R1-9,R11-13 & Mobile APP is the medium for the communication between the user and the system \\
+	\hline
+	RT & R1-3,R5-9,R11-12 & Router is the middleware component for the "frontend" functionalities.\\
+	\hline
+	AT & R1-4 & Authentication Service allows to check the state of the user (e.g. Active, Pending or Guest)\\
+	\hline
+	GE & R5,R11-12 & Geo Service is the service that allows to show the items on the map and apply filters based on the user's location\\
+	\hline
+	BS & R6-10,R13 & Booking Service manages the "state machine" and the related effects for the charging sessions.\\
+	\hline
+	NS & R13 & It allows to communicate with the external service providers\\
+	\hline
+	PS & R10 & It allows to communicate with the Payment Service Provider\\
+	\hline
+	OC & R5-12,R14 & It allows the bidirectional communication with the various CPMS\\
+	\hline
+	OR & R* & It allows to easily access the DBMS APIs and to manage the relationships between the models.\\
+	\hline
+	MD & R* & It allows to access the ORM interfaces and to trigger functions on models' events (e.g. send a notification when charging is completed) \\
+	\hline
+\end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

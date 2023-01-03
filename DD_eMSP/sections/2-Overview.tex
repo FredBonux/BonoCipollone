@@ -62,18 +62,17 @@ The following schema shows all the main components and interfaces of the system.
 	\item \textbf{DBMS}: Database Management System
 \end{itemize}
 
+\clearpage
+\subsection{Class diagram}
 \begin{figure}[h]
-\includegraphics[width=\textwidth]{component_diagrams/class_diagram}
-\caption{Class diagram for the main interfaces of the System}
+\includegraphics[width=\textwidth]{class_diagram}
+\caption{Class diagram for the main models of the System}
 \end{figure}
-
 \clearpage
 \newpage
 
 \section{Deployment view}
 In this section we introduce a detailed view of the system and various component from a deployment cycle perspective. The following schemes highlight the environments and the tools to be used for the system.
-
-
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{component_diagrams/deployment_diagram}
 \caption{Deployment diagram for the System}
@@ -88,6 +87,17 @@ In this section we introduce a detailed view of the system and various component
 
 \clearpage
 \newpage
+
+\section{Component interfaces}
+In this section we introduce the main interfaces of the various components of System. 
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{component_diagrams/class_diagram}
+\caption{Component interfaces diagrams for the system}
+\end{figure}
+
+\clearpage
+\newpage
+
 
 \section{Runtime view}
 In this section are shown the sequence diagrams for the various functionalities of the system. To simplify the description there is an initial generic sequence the summarize the routing and authorization part of the request handling. Also, as all the request go through the router, the actors that sends the request to the router are omitted.
