@@ -1,0 +1,44 @@
+\chapter{Implementation, Integration and test Plan}
+\section{Plan details}
+To implement the system components we've decided to follow a planned structure, dividing the components into various groups in order to be able to develop them in parallel, using a more complex workforce. Given the limited number of functionalities, we think that a progressive release strategy (i.e. with multiple smaller releases) is not really worth for the final user, that means that the only way to bring value to the user will be to have the system released all at once.\\
+This assumption allows us to follow different strategies, both bottom-up and top-down. \\
+To keep aligned the tests set and the actual codebase, we decided to follow the famous TDD (Test Driven Development) strategy, where unit/integration tests are written before the code and then the actual codebase is developed to fulfil those tests. \\
+To develop the best user experience possible, we decided to follow the top-down approach, splitting the development of the various components by functionalities viewed from the user's point of view. We've can use the goals defined in the RASD as a starting point.\\\\
+We've defined the following functionalities:
+\begin{enumerate}
+	\item Signup, Login, Email confirmation and payment method registration
+	\item View the CP locations, filter them and view the details of a location
+	\item Book a charge session at a specific location for a specific connector
+	\item Start and complete a charge session from the app for a specific booked session
+	\item View the list and the details of the booked sessions
+	\item Be notified when the charging process has been completed
+	\item Be charged with the correct amount after the charging process\\
+\end{enumerate}
+
+Based on those functionalities we can define the following development path:
+\begin{enumerate}
+	\item \textbf{Application scaffolding}\\
+	In this phase we set up the servers (from a logical point of view, through docker), the frameworks and the connections with the DBMS. We use the Router component given by the framework, so it can be considered as being developed/integrated in this phase.
+	\item \textbf{Authentication and notification scaffolding}\\ In this phase we develop the Authentication Service, the Notification Service and we connect with the chosen Email Provider to send the email confirmation link to the user. The related UI and Models are also developed in this phase, alongside with the needed database migrations.
+	\item \textbf{Payment method verification}\\ As we delegate the verification to the PSP, we only need to develop the PSP Service on the backend (with the related models, tables and DB migrations) and integrate the UI on the mobile APP.
+	\item \textbf{OCPI service integration}\\ We use some open source libraries that implements the needed interface for the OCPI (both PULL and PUSH methods), and wrap it with a utility service (i.e. the OCPI Service) to expose the chosen interfaces. As we are following the top-down approach we only set up the libraries and the base service.
+	\item \textbf{CP list and details}\\ We start to develop the needed interfaces for the OCPI service and then we can start implementing the Geo Service to allow the user to view all the needed information.
+	\item \textbf{Booking Service}\\ In this phase we start to develop the functionalities to book a charge from a specific CP, we need to expose those functionalities from the OCPI Service and then we can implement the needed models alongside with the Booking Service and the Mobile APP UI.
+	\item \textbf{Charging functionalities}\\ In this phase we add the charging management functionalities to both OCPI Service and Booking Service.
+	\item \textbf{Booking status and list}\\ In this phase we use the PUSH interfaces of the OCPI libraries to update our booking model data. We also add the needed functionalities to the Booking Service that will allow the user to view the bookings status.
+	\item \textbf{Notifications}\\ We implement a event callback on the Booking Model that will trigger the Notification Service to send a "charging completed" notification to the user devices.
+	\item \textbf{PSP integration}\\ We implement another event callback on the Booking Model to trigger the payment from the PSP Service to charge the user for the service.
+\end{enumerate}
+\newpage
+
+\section{Additional testing}
+After development and integration we will run some system-level tests.
+First test to run is on non-functional requirements, developers need to test accessibility features and base performance, doing so we can easily find the most important bottlenecks of the application.
+Another test that is useful to run is the so called "chaos test": various components of the system are disconnected on purpose to try to verify the behaviour of the system, the goal here is to check that the system fails safely, without losing or leaking data. 
+The final test that will be run is the acceptance test: the system will be tested with real users in the production environment to verify that is really useful to them.
+
+
+
+
+
+

@@ -1,0 +1,82 @@
+\chapter{Introduction}
+\section{Purpose}
+The purpose of this document is to describe and explain in details the design choices for the development and deployment of the eMSP system of eMall. The description is structured on multiple levels to give an overview of the system from multiple viewpoints. In the following pages you will find:
+
+\begin{enumerate}
+	\item High level overview of the architecture
+	\item Overview of the components of the system
+	\item Deployment overview
+	\item Overview of the interactions between components
+	\item Overview of the interfaces offered by the various components
+	\item The UI of the mobile application used by the final user
+	\item The patterns and technologies used in the system
+\end{enumerate}
+
+\section{Scope}
+eMall App is a platform that helps the end users to plan the charging process, by getting information about Charging Points nearby, their costs and any special offer; book a charge in a specific point, control the charging process and get notified when the charge is completed. It also handles payments for the service.\\\\
+In the e-Charging ecosystem, there are many different actors involved that we need to keep into consideration while collecting requirements and designing the system. The first information to consider is that Charging Points are owned and managed by Charging Point Operators (CPOs) and each CPO has its own IT infrastructure, managed via a Charge Point Management System (CPMS). \\\\
+In order to comunicate with the various CPMS, the 
+\href{../Specs/OCPI-2.2.1.pdf}{OCPI (Open Charge Point Interface) protocol} is used.\\\\
+To be able to process payments, the system will need to communicate with a Payment Service Provider (PSP) via the HTTP(s) protocol, using the propertary APIs offered by the provider.\\\\
+Given that our system is not the producer of the data, and that there is the need for implementing different functionalities (e.g. payments) a three-tier architecture has been chosen, to separate the data layer (that mostly acts as a cache layer) and the business logic layer.
+
+
+\section{Definitions, Acronyms, Abbreviations}
+
+\subsection{Definitions}
+
+\begin{tabular}{|p{5cm}|p{10cm}|}
+	\hline
+	\hline
+\end{tabular}
+
+\subsection{Acronyms}
+\begin{tabular}{|l|l|}
+	\hline
+	\hline
+\end{tabular}
+
+\section{Revision History}
+\begin{itemize}
+	\item v1.0 - 05 January 2023
+\end{itemize}
+
+\section{Related Documents}
+\begin{itemize}
+	\item {eMSP RASD (RASD\_eMSP.pdf)}
+	\item OCPI specifications document (OCPI-2.2.1.pdf)
+\end{itemize}
+
+\section{Document structure}
+The document is structured in six sections:
+
+\begin{enumerate}
+	\item Description and introduction of the various design choices made during the design of the system. Descriptions are written at different levels of abstractions: from the general point of view to the detailed view of the single component.
+	\item User interfaces and design mockups.
+	\item The requirement traceability matrix is used to map each component to the requirement(s) that fulfils.
+	\item Implementation and test plans for the entire system
+	\item Total effort
+	\item References used
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
