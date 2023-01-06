@@ -1,0 +1,171 @@
+\chapter{Introduction}
+\section{Purpose}
+The purpose of this document is to analyze and define the goals and requirements of the Charging Point Management System (CPMS), the IT structure capable of managing a car charging station.
+\subsection{Goals}
+\begin{tabular}{ |l|l| } 
+\hline 
+G1 & Allow eMSP to start and end a charging session\\
+ \hline 
+G2 & Allow eMSP to be notified when the charging process is completed\\
+ \hline
+G3 & Allow CPO to have information about the internal status of a charging station\\
+ \hline
+G4 & Allow eMSPs to have information about the current tariffs\\
+ \hline
+G5 & Allow eMSPs to have information about the position of the charging stations\\
+ \hline
+G6 & Allow eMSPs to have information about the status of the car charging process \\
+ \hline
+G7 & Allow CPOs to manually decide the current energy price \\
+\hline
+G8 & Allow CPOs to manually decide from witch DSO acquire energy \\
+ \hline
+G9 & Allow CPOs to manually decide whether to use or store energy inside batteries \\
+\hline
+\end{tabular}
+
+\section{Scope}
+Each charging station managed by the Charging Point Operators (CPO) has an IT infrastructure called Charge Point Management System (CPMS). Through this application, administrators are able to manage the various charging stations such as the selection of the DSO and the use of the batteries present in the stations. The CPMS must be able to manage the station,deciding independently the most optimal energy management policy. The CPMS is able to connect the charging station with the rest of the e-Charging ecosystem, allowing an interaction with the user and with the various energy suppliers (Distribution System Operators (DSO)).\\
+
+\subsection{World Phenomena}
+
+\subsubsection{eMSP side}
+\begin{tabular}{|l|l|}
+	\hline
+	WP1 & eMSP wants to start a charging session\\
+	\hline
+	WP2 & eMSP wants to know the rates offered by the various CPMS\\
+	\hline
+	WP3 & eMSP wants to book a charging session at a specific charging point\\
+	\hline
+	WP4 & User disconnects the Electric Vehicle from the Charging Slot\\
+	\hline
+	WP5 & CPO starts the maintenance of a Charging Slot\\
+	\hline
+	WP6 & CPO completes the maintenance of a Charging Slot\\
+	\hline
+	WP7 & CPO decides to check the internal status of a charging station\\
+	\hline
+	WP8 & CPO decides to set up an energy management policy of one charging point\\
+	\hline
+	WP9 & CPO decides to change the price of tariffs\\
+	\hline
+	WP10 & CPO decides to change from which DSO acquire energy\\
+	\hline
+	WP11 & DSO provide energy to the charging point\\
+	\hline
+\end{tabular}
+
+
+\subsection{Shared Phenomena}
+\subsubsection{eMSPs side}
+\begin{tabular}{|l|l|}
+	\hline
+	SP1 & eMSPs request information about the charging points\\
+	\hline
+	SP2 & eMSPs books a charging session \\
+	\hline
+	SP3 & eMSPs receives information about the state of the charging session\\
+	\hline
+\end{tabular}
+
+\subsubsection{Charging point side}
+\begin{tabular}{|l|l|}
+	\hline
+	SP4 & System authenticate the charging session\\
+	\hline
+	SP5 & The system activates a charging socket of an charging slot, making it available \\
+	\hline
+	SP6 & The system deactivates a charging socket of an charging slot\\
+	\hline
+	SP7 & charging slot sends to the system information about the charging status of the car\\
+	\hline
+	SP8 & charging slot communicates diagnostic information to the system\\
+	\hline
+\end{tabular}
+
+\subsubsection{CPO side}
+\begin{tabular}{|l|l|}
+	\hline
+	SP9 & The system shows the current energy management settings to the CPO\\
+	\hline
+	SP10 & CPO login into the system and change the energy management settings\\
+	\hline
+	SP13 & CPO login into the system and change the energy price\\
+	\hline
+	SP14 & CPO login into the system and view information about the internal status of the system\\
+	\hline
+	SP14 & System notifies the CPO of a component malfunction\\
+	\hline
+\end{tabular}
+
+
+\section{Definitions, Acronyms, Abbreviations}
+
+\subsection{Definitions}
+
+\begin{tabular}{|p{5cm}|p{10cm}|}
+	\hline
+	Connector \newline Charging Socket & Physical connector that allow to transfer energy to the connected vehicle\\
+	\hline
+	Charging slot & Physical device with multiple Connectors that can charge electric vehicles.\newline
+	NOTE: from OCPI definitions a Charging Slot can have up to one connector active at any time (i.e. can charge only one Vehicle at any time) \\
+	\hline
+	Charging Point & Physical structure composed by multiple Charging Slots\\
+	\hline
+	Maintenance of a charging slot & Activity/activities that results in a momentary unavailability of the charging slot\\
+	\hline
+	Charging session & period of time when the vehicle is connected to a charging plug for charging\\
+	\hline
+	Booking period & period of time between the booking of a charging session and the beginning of the charging session\\
+	\hline
+	Internal status & "The amount of energy stored in the batteries, if any, the quantity of vehicles currently being charged, and the current energy management settings. \\
+	\hline
+	
+	
+\end{tabular}
+
+\subsection{Acronyms}
+\begin{tabular}{|l|l|}
+	\hline
+	eMSP & e-Mobility Service Provider\\
+	\hline
+	CP & Charge Point / Charging Point\\
+	\hline
+	CS & Charge Slot / EVSE\\
+	\hline
+	CPO & Charging Point Operator\\
+	\hline
+	CPMS & Charging Point Management System\\
+	\hline
+	OCPI & Open Charge Point Interface\\
+	\hline
+	EV & Electric Vehicle\\
+	\hline
+	OCPP & Open Charge Point Protocol\\
+	\hline
+	DSO & Distribution Management System \\
+	\hline
+\end{tabular}
+
+\section{Revision History}
+\begin{itemize}
+	\item v1.0 - 10 December 2022
+	\item v1.1 - 23 December 2022 | fix naming 
+\end{itemize}
+
+\section{Related Documents}
+\href{../Specs/OCPI-2.2.1.pdf}{OCPI specifications document}\\
+\href{../Specs/ocpp-1.6.pdf.pdf}{OCPP specifications document}
+
+\section{Document structure}
+The document is structured in six sections:
+
+\begin{enumerate}
+	\item Problem introduction, associated goals of the project. In this section you can also find the scope of the project, the various phenomena occurring and the definitions and abbreviations used in this document.
+	\item The second section contains a overview of the system, the details about the main functionalities. Class diagrams, state-charts and domain assumptions are used to introduce the various scenarios.
+	\item In this section are specified the different requirements of the system, the various use cases and the mapping between functional requirements and the goals of the system.
+	\item Alloy is used to conduct the formal analysis of the system.
+	\item Total effort
+	\item References used
+\end{enumerate}
