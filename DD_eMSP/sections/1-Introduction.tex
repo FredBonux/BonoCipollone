@@ -24,17 +24,56 @@ Given that our system is not the producer of the data, and that there is the nee
 \section{Definitions, Acronyms, Abbreviations}
 
 \subsection{Definitions}
-
 \begin{tabular}{|p{5cm}|p{10cm}|}
 	\hline
+	Connector \newline Charging Socket & Physical connector that allow to transfer energy to the connected vehicle\\
+	\hline
+	Charging slot & Physical device with multiple Connectors that can charge electric vehicles.\newline
+	NOTE: from OCPI definitions a Charging Slot can have up to one connector active at any time (i.e. can charge only one Vehicle at any time) \\
+	\hline
+	Charging Point & Physical structure composed by multiple Charging Slots\\
+	\hline
+	Maintenance of a charging slot & Activity/activities that results in a momentary unavailability of the charging slot\\
+	\hline
+	Payment information & information required by the payment provider to be able to charge the user for the service (e.g. credit card number)\\
+	\hline
+	Charging session & period of time when the vehicle is connected to a charging plug for charging\\
+	\hline
+	Booking period & period of time between the booking of a charging session and the beginning of the charging session\\
+	\hline
+	{Guest \newline Guest User} & Unregistered user\\
+	\hline
+	{User \newline Enabled User \newline Active User} & Registered user with confirmed email and payment method\\
+	\hline
+	Unconfirmed User & Registered user without confirmed email\\
+	\hline
+	Pending User & Registered user with confirmed email but no payment method set up\\
+	\hline
+	Payment Service Provider & External service that provides API to process payments\\
 	\hline
 \end{tabular}
 
 \subsection{Acronyms}
 \begin{tabular}{|l|l|}
 	\hline
+	eMSP & e-Mobility Service Provider\\
+	\hline
+	CP & Charge Point / Charging Point\\
+	\hline
+	CPO & Charging Point Operator\\
+	\hline
+	CPMS & Charging Point Management System\\
+	\hline
+	OCPI & Open Charge Point Interface\\
+	\hline
+	EV & Electric Vehicle\\
+	\hline
+	PSP & Payment Service Provider\\
+	\hline
+	API & Application Programming Interface\\
 	\hline
 \end{tabular}
+
 
 \section{Revision History}
 \begin{itemize}
