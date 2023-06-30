@@ -1,0 +1,137 @@
+\chapter{Introduction}
+\section{Purpose}
+The purpose of this document is to describe and explain in details the design choices for the development and deployment of the CPMS system of eMall. The description is structured on multiple levels to give an overview of the system from multiple viewpoints. In the following pages you will find:
+
+\begin{enumerate}
+	\item High level overview of the architecture
+	\item Overview of the components of the system
+	\item Deployment overview
+	\item Overview of the interactions between components
+	\item Overview of the interfaces offered by the various components
+	\item The UI of the mobile application used by the CPO
+	\item The patterns and technologies used in the system
+\end{enumerate}
+
+\section{Scope}
+eMall App is a platform that helps the end users to plan the charging process, by getting information about Charging Points nearby, their costs and any special offer; book a charge in a specific point, control the charging process and get notified when the charge is completed. It also handles payments for the service.\\\\
+In the e-Charging ecosystem, there are many different actors involved that we need to keep into consideration while collecting requirements and designing the system. The first information to consider is that Charging Points are owned and managed by Charging Point Operators (CPOs) and each CPO has its own IT infrastructure, managed via a Charge Point Management System (CPMS). \\\\
+Another actor is the eMSP, which manages the end user's requests, forwarding the booking and top-up management requests to the CPMS. 
+In order to comunicate with the various eMSP, the 
+\href{../Specs/OCPI-2.2.1.pdf}{OCPI (Open Charge Point Interface) protocol} is used.\\\\
+While to communicate with the various charging slots, the 
+\href{../Specs/ocpp-1.6.pdf}{OCPP (Open Charge Point Protocol)} is used.\\\\
+
+The CPMS has the task of managing the energy used at the charging points owned by the CPO. To do this, it must communicate with the DSOs, which supply the energy to the various charging stations.
+
+
+
+\section{Definitions, Acronyms, Abbreviations}
+
+\subsection{Definitions}
+
+\begin{tabular}{|p{5cm}|p{10cm}|}
+	\hline
+	\hline
+\end{tabular}
+
+\subsection{Acronyms}
+\begin{tabular}{|l|l|}
+	\hline
+	\hline
+\end{tabular}
+
+\section{Revision History}
+\begin{itemize}
+	\item v1.0 - 03 January 2023
+\end{itemize}
+
+\section{Definitions, Acronyms, Abbreviations}
+
+\subsection{Definitions}
+
+\begin{tabular}{|p{5cm}|p{10cm}|}
+	\hline
+	Connector \newline Charging Socket & Physical connector that allow to transfer energy to the connected vehicle\\
+	\hline
+	Charging slot & Physical device with multiple Connectors that can charge electric vehicles.\newline
+	NOTE: from OCPI definitions a Charging Slot can have up to one connector active at any time (i.e. can charge only one Vehicle at any time) \\
+	\hline
+	Charging Point & Physical structure composed by multiple Charging Slots\\
+	\hline
+	Maintenance of a charging slot & Activity/activities that results in a momentary unavailability of the charging slot\\
+	\hline
+	Charging session & period of time when the vehicle is connected to a charging plug for charging\\
+	\hline
+	Booking period & period of time between the booking of a charging session and the beginning of the charging session\\
+	\hline
+	Internal status & The amount of energy stored in the batteries, if any, the quantity of vehicles currently being charged, and the current energy management settings. \\
+	\hline
+	External status &  Number of charging sockets available, their type such as slow/fast/rapid, their cost, and, if all sockets of a certain type are occupied, the estimated amount of time until the first socket of that type is freed. \\
+	\hline
+	
+	
+\end{tabular}
+
+\subsection{Acronyms}
+\begin{tabular}{|l|l|}
+	\hline
+	eMSP & e-Mobility Service Provider\\
+	\hline
+	CP & Charge Point / Charging Point\\
+	\hline
+	CS & Charge Slot / EVSE\\
+	\hline
+	CPO & Charging Point Operator\\
+	\hline
+	CPMS & Charging Point Management System\\
+	\hline
+	OCPI & Open Charge Point Interface\\
+	\hline
+	EV & Electric Vehicle\\
+	\hline
+	OCPP & Open Charge Point Protocol\\
+	\hline
+	DSO & Distribution Management System \\
+	\hline
+\end{tabular}
+
+\section{Related Documents}
+\begin{itemize}
+	\item {CPMS RASD (RASD\_eMSP.pdf)}
+	\item OCPI specifications document (OCPI-2.2.1.pdf)
+	\item OCPP document (ocpp-1.6.pdf)
+\end{itemize}
+
+\section{Document structure}
+The document is structured in six sections:
+
+\begin{enumerate}
+	\item Description and introduction of the various design choices made during the design of the system. Descriptions are written at different levels of abstractions: from the general point of view to the detailed view of the single component.
+	\item User interfaces and design mockups.
+	\item The requirement traceability matrix is used to map each component to the requirement(s) that fulfils.
+	\item Implementation and test plans for the entire system
+	\item Total effort
+	\item References used
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

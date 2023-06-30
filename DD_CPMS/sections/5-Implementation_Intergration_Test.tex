@@ -1,0 +1,53 @@
+\chapter{Implementation, Integration and test Plan}
+\section{Plan details}
+To implement the system components we've decided to follow a planned structure, dividing the components into various groups in order to be able to develop them in parallel, using a more complex workforce. Given the limited number of functionalities, we think that a progressive release strategy (i.e. with multiple smaller releases) is not really worth for the final user, that means that the only way to bring value to the user will be to have the system released all at once.\\
+This assumption allows us to follow different strategies, both bottom-up and top-down. \\
+To keep aligned the tests set and the actual codebase, we decided to follow the famous TDD (Test Driven Development) strategy, where unit/integration tests are written before the code and then the actual codebase is developed to fulfil those tests. \\
+To develop the best user experience possible, we decided to follow the top-down approach, splitting the development of the various components by functionalities viewed from the user's point of view. We've can use the goals defined in the RASD as a starting point.\\\\
+We've defined the following functionalities:
+\begin{enumerate}
+	\item Login
+	\item View the CP locations, filter them and view the details of a location
+	\item Book a charge session at a specific location for a specific connector
+	\item Start and complete a charge session
+	\item View the list of reservations at the various stations and charging slots
+	\item Independently manage the energy management policy
+	\item Create adaptive tariffs with respect to energy costs and the presence of batteries
+	\item View the internal status of the system
+	\item View the external status of the system
+	\item Establish a connection with the various DSOs
+	\item Manage the connection with all the various charging slots present
+	\item Provide information such as rates and external status to eMSPs
+	\item Be charged with the correct amount after the charging process\\
+\end{enumerate}
+
+Based on those functionalities we can define the following development path:
+\begin{enumerate}
+	\item \textbf{Application scaffolding}\\
+	In this phase we set up the servers (from a logical point of view, through docker), the frameworks and the connections with the DBMS. We use the Router component given by the framework, so it can be considered as being developed/integrated in this phase.
+	\item \textbf{Authentication and notification scaffolding}\\ In this phase we develop the Authentication Service, the Notification Service and we connect with the chosen Email Provider to send the email confirmation link to the user. The related UI and Models are also developed in this phase, alongside with the needed database migrations.
+	\item \textbf{OCPI service integration}\\ We use some open source libraries that implements the needed interface for the OCPI (both PULL and PUSH methods), and wrap it with a utility service.
+	\item \textbf{OCPP service integration}\\ We use some open source libraries that implements the needed interface for the OCPP (both PULL and PUSH methods), and wrap it with a utility service.
+	\item \textbf{DSO Service service integration}\\  Build an interface for DSOs using their standard
+	\item \textbf{Battery Management Service}\\ Implementiamo il servizzio che permette la comunicazioen e gestione delle eventuali batterie.
+	\item \textbf{Models and database}\\ We start to develop the the models and the database for the management of the information to be stored within the system
+	\item \textbf{Energy management system}\\ We implement the energy management service at the various stations. By creating an interface to allow settings to be changed and saved
+	\item \textbf{Dynamic pricing system}\\ We implement the service for dynamic price management
+	\item \textbf{Booking Service}\\ In this phase we start to develop the functionalities to book a charge from a specific CP, we need to expose those functionalities from the OCPI Service.
+	\item \textbf{Sessions functionalities}\\ In this phase we add the charging management functionalities to both OCPI Service and Booking Service.
+	\item \textbf{External Status Service}\\ Implement the service for monitoring the external status of the stations, and make its interfaces available to the OCPI Service
+	\item \textbf{Internal Status Service}\\ Implement the service for monitoring the internal status of the stations, and make its interfaces available to the Router
+\end{enumerate}
+
+
+\section{Additional testing}
+After development and integration we will run some system-level tests.
+First test to run is on non-functional requirements, developers need to test accessibility features and base performance, doing so we can easily find the most important bottlenecks of the application.
+Another test that is useful to run is the so called "chaos test": various components of the system are disconnected on purpose to try to verify the behaviour of the system, the goal here is to check that the system fails safely, without losing or leaking data. 
+The final test that will be run is the acceptance test: the system will be tested with real users in the production environment to verify that is really useful to them.
+
+
+
+
+
+

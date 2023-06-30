@@ -1,0 +1,132 @@
+\chapter{Requirements Traceability}
+\section{Functional requirements}
+In the following table are summarized the requirements extracted from the RASD.\\
+
+\begin{tabular}{|c|l|}
+	\hline
+	\bf{Requirement} & \bf{Description} \\
+	\hline
+	R1 & Allow to book a charging session on a specific CS\\
+	\hline
+	R2 & Allow to start a charging session on a specific CS\\
+	\hline
+	R3 & Allow to stop a charging session on a specific CS\\
+	\hline
+	R4 & Forward information about the state of a charging session to the eMSP\\
+	\hline
+	R5 & Allow Login for CPO\\
+	\hline
+	R6 & Allow to view information about the internal status of a charging station\\
+	\hline
+	R7 & Forward of the offered tariffs\\
+	\hline
+	R8 & Allow CPO to set or change tariffs\\
+	\hline
+	R9 & Allow CPO to enter static information about charging stations\\
+	\hline
+	R10 & Forward information about the location of charging stations\\
+	\hline
+	R11 & Forward information about the location of charging stations\\
+	\hline
+	R12 & Allow CPOs to change the settings and management settings of the charging station\\
+	\hline
+\end{tabular}
+\pagebreak
+\section{Components mapping}
+To keep the mapping simple, we define some abbreviations for the components.\\
+
+\begin{tabular}{|c|l|}
+	\hline
+	\bf{} & \bf{Component} \\
+	\hline
+	AS & Application Server\\
+	\hline
+	ESS & External Status Service\\
+	\hline
+	BS & Booking Service\\
+	\hline
+	APP & Client Application\\
+	\hline
+	RT & Router\\
+	\hline
+	AT & Auth Service\\
+	\hline
+	ISS & Internal Status Service\\
+	\hline
+	DPS & Dynamic Pricing Service\\
+	\hline
+	EMS & Energy Management Service\\
+	\hline
+	DSOS & DSO service\\
+	\hline
+	OCPPS & OCPP Service\\
+	\hline
+	BMS & Battery Manager Service\\
+	\hline
+	OC & OCPI Service\\
+	\hline
+	OR & ORM\\
+	\hline
+	MD & Models (User, CP, Booking Model...)\\
+	\hline
+\end{tabular}
+
+\section{Components mapping on Requirements}
+
+\begin{tabular}{|p{1.5cm}|p{3cm}|p{10cm}|}
+	\hline
+	\bf{Comp.} & \bf{Requirements} & \bf{Reason} \\
+	\hline
+	\hline
+	AS & R* & Application server is needed for all the functionalities as it is the foundation for the system\\
+	\hline
+	ESS & R4, R7,R11 &  External Status Service is used to send and analyze data regarding the external state of the system\\
+	\hline
+	BS & R1-3 & Booking Service manages the "state machine" and the related effects for the charging sessions.\\
+	\hline
+	APP & R5-6,R8-9,R12 & Client Application is the medium for the communication between the CPO and the system \\
+	\hline
+	RT & R5-6,R8-9,R12 & Router is the middleware component for the "frontend" functionalities.\\
+	\hline
+	AT & R5-6,R8-9,R12 & Authentication Service allows to check the state of the user\\
+	\hline
+	ISS & R6 & Internal Status Service is the service that allows to show and analyze data regarding the internal state of the system\\
+	\hline
+	DPS & R1,R7-8,R11 &Dynamic Pricing Service is the service capable of calculating and indicating active tariffs, which can be dynamic according to electricity prices\\
+	\hline
+	EMS & R2-3,R9,R12 & Energy Management Service is the component that allows you to manage energy management policies at the various charging stations\\
+	\hline
+	DSOS & R8,R13 & It allows the bidirectional communication with the various DSOs\\
+	\hline
+	OCPPS & R2-4,R6,R9-10  & It allows the bidirectional communication with the various CS/EVSE\\
+	\hline
+	BMS &  R9,R12-13 & Battery Manager Service allows communication with the various batteries and their administration\\
+	\hline
+	OC & R1-R4,R7,R10 & It allows the bidirectional communication with the various eMSP\\
+	\hline
+	OR &  R*& It allows to easily access the DBMS APIs and to manage the relationships between the models\\
+	\hline
+	MD & R* & It allows to access the ORM interfaces and to trigger functions on models’ events (e.g. send a notification when charging is completed)\\
+	\hline
+\end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
